@@ -1,4 +1,4 @@
-package com.kodkata.kata.tennis.kata;
+package com.kodkata.kata.tennis.done;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,29 +10,44 @@ public class TennisGame {
 	private static final String PLAYER_TWO_WINS = "Player Two wins";
 	private static final String PLAYER_ONE_WINS = "Player One wins";
 	private static final String DEUCE = "Deuce";
+	private static Map<Integer, String> SCORE_NAMES = new HashMap<Integer, String>() {
+		{
+			put(0, "Love");
+			put(1, "Fifteen");
+			put(2, "Thirty");
+			put(3, "Fourty");
+		}
+	};
 	private int playerOneScore;
 	private int playerTwoScore;
-	private static Map<Integer, String> SCORE_NAMES = new HashMap<Integer, String>(){{
-		put(0, "Love");
-		put(1, "Fifteen");
-		put(2, "Thirty");
-		put(3, "Fourty");
-	}};
+
 	public String getScore() {
-		if(playerOneIsWinner()) return PLAYER_ONE_WINS;
-		if(playerTwoIsWinner()) return PLAYER_TWO_WINS;
-		if(playerOneHasAdvantage()) return ADVANTAGE_PLAYER_ONE;
-		if(playerTwoHasAdvantage()) return ADVANTAGE_PLAYER_TWO;
-		if(isDeuce())return DEUCE;
+		if (playerOneIsWinner())
+			return PLAYER_ONE_WINS;
+		if (playerTwoIsWinner())
+			return PLAYER_TWO_WINS;
+		if (playerOneHasAdvantage())
+			return ADVANTAGE_PLAYER_TWO;
+		if (playerTwoHasAdvantage())
+			return ADVANTAGE_PLAYER_ONE;
+		if (isDeuce())
+			return DEUCE;
 		return getScoreAsString();
 	}
 
-	private boolean playerOneHasAdvantage() {
+	private boolean playerTwoHasAdvantage() {
 		return playerOneScore == playerTwoScore + 1 && playerOneScore > 3;
 	}
 
-	private boolean playerTwoHasAdvantage() {
-		return playerTwoScore == playerOneScore + 1 && playerOneScore > 3;
+	private boolean playerOneHasAdvantage() {
+		return playerTwoScore == playerOneScore + 1 && playerTwoScore > 3;
+	}
+
+	private String getScoreAsString() {
+		if (scoresEquals())
+			return getScoreName(playerOneScore) + " all";
+		return getScoreName(playerOneScore) + ", "
+				+ getScoreName(playerTwoScore);
 	}
 
 	private boolean playerTwoIsWinner() {
@@ -41,12 +56,6 @@ public class TennisGame {
 
 	private boolean playerOneIsWinner() {
 		return playerOneScore > 3 && playerOneScore > playerTwoScore + 1;
-	}
-
-	private String getScoreAsString() {
-		if(scoresEquals())
-			return getScoreName(playerOneScore) + " all";
-		return getScoreName(playerOneScore) + ", " + getScoreName(playerTwoScore);
 	}
 
 	private boolean isDeuce() {
@@ -61,11 +70,11 @@ public class TennisGame {
 		return SCORE_NAMES.get(score);
 	}
 
-	public void playerOneScore() {
+	public void playerOneScores() {
 		playerOneScore++;
 	}
 
-	public void playerTwoScore() {
+	public void playerTwoScores() {
 		playerTwoScore++;
 	}
 
