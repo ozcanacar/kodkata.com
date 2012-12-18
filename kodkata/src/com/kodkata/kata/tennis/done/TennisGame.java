@@ -27,19 +27,19 @@ public class TennisGame {
 		if (playerTwoIsWinner())
 			return PLAYER_TWO_WINS;
 		if (playerOneHasAdvantage())
-			return ADVANTAGE_PLAYER_TWO;
-		if (playerTwoHasAdvantage())
 			return ADVANTAGE_PLAYER_ONE;
+		if (playerTwoHasAdvantage())
+			return ADVANTAGE_PLAYER_TWO;
 		if (isDeuce())
 			return DEUCE;
 		return getScoreAsString();
 	}
 
-	private boolean playerTwoHasAdvantage() {
+	private boolean playerOneHasAdvantage() {
 		return playerOneScore == playerTwoScore + 1 && playerOneScore > 3;
 	}
 
-	private boolean playerOneHasAdvantage() {
+	private boolean playerTwoHasAdvantage() {
 		return playerTwoScore == playerOneScore + 1 && playerTwoScore > 3;
 	}
 
