@@ -1,4 +1,4 @@
-package com.kodkata.kata.movie.kata;
+package com.kodkata.kata.movie.done;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;

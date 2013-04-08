@@ -1,4 +1,4 @@
-package com.kodkata.kata.movie.kata;
+package com.kodkata.kata.movie.done;
 
 public abstract class Movie {
 	public static final int CHILDRENS = 2;

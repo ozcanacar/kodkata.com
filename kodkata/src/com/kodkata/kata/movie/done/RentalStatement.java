@@ -1,4 +1,4 @@
-package com.kodkata.kata.movie.kata;
+package com.kodkata.kata.movie.done;
 
 import java.util.ArrayList;
 import java.util.List;
