@@ -1,12 +1,12 @@
 package com.kodkata.kata.iterator.orig;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 public class IteratorTest {
@@ -39,8 +39,7 @@ public class IteratorTest {
 
 					@Override
 					public String next() {
-						return list.get(i++);
-						// return hasNext() ? : "";
+						return hasNext() ? list.get(i++) : "";
 					}
 
 					@Override
@@ -55,10 +54,10 @@ public class IteratorTest {
 
 		final Iterator<String> iterator = impl.iterator();
 
-		assertThat(iterator.next(), CoreMatchers.equalTo("A"));
-		assertThat(iterator.next(), CoreMatchers.equalTo("B"));
-		assertThat(iterator.next(), CoreMatchers.equalTo("C"));
-		assertThat(iterator.next(), CoreMatchers.equalTo(""));
+		assertThat(iterator.next(), equalTo("A"));
+		assertThat(iterator.next(), equalTo("B"));
+		assertThat(iterator.next(), equalTo("C"));
+		assertThat(iterator.next(), equalTo(""));
 
 	}
 
