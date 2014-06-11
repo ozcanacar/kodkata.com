@@ -1,5 +1,7 @@
 package com.kodkata.kata.replaceConditionalDispatcherWithCommand.orig;
 
+import static com.kodkata.kata.replaceConditionalDispatcherWithCommand.orig.OrderAssert.assertThat;
+
 import org.junit.Test;
 
 public class PriceCalculatorTest {
@@ -13,21 +15,19 @@ public class PriceCalculatorTest {
     @Test
     public void shouldCalculatePriceForGermanLocale() throws Exception {
 
-        OrderAssert.assertThat(order).inCountry(LOCALE_GERMANY).withPrice(DEFAULT_NETTO_PRICE).hasTotalPrice(119);
+        assertThat(order).inCountry(LOCALE_GERMANY).withPrice(DEFAULT_NETTO_PRICE).hasTotalPrice(119);
     }
 
     @Test
     public void shouldCalculatePriceForTurkishLocale() throws Exception {
 
-        OrderAssert.assertThat(new Order()).inCountry(LOCALE_TURKISH_REPUBLIC).withPrice(DEFAULT_NETTO_PRICE)
-                .hasTotalPrice(118);
+        assertThat(order).inCountry(LOCALE_TURKISH_REPUBLIC).withPrice(DEFAULT_NETTO_PRICE).hasTotalPrice(118);
     }
 
     @Test
     public void shouldCalculatePriceForAustrianLocale() throws Exception {
 
-        OrderAssert.assertThat(new Order()).inCountry(LOCALE_AUSTRIA).withPrice(DEFAULT_NETTO_PRICE).hasTotalPrice(120);
-
+        assertThat(new Order()).inCountry(LOCALE_AUSTRIA).withPrice(DEFAULT_NETTO_PRICE).hasTotalPrice(120);
     }
 
 }

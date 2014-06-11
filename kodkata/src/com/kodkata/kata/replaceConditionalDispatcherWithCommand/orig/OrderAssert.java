@@ -32,5 +32,4 @@ public class OrderAssert extends AbstractAssert<OrderAssert, Order> {
         this.price = price;
         return this;
     }
-
 }
